@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Secure Auth System</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo">🔐</div>
+        <h1 class="auth-title">Welcome Back</h1>
+        <p class="auth-subtitle">Sign in to access your protected dashboard</p>
+      </div>
+
+      <!-- Feedback / Alert Container -->
+      <div id="formAlert" class="alert hidden" role="alert" aria-live="polite"></div>
+
+      <!-- Login Form -->
+      <form id="loginForm" novalidate>
+        <!-- Username or Email Field -->
+        <div class="form-group">
+          <label for="loginIdentifier" class="form-label">Username or Email</label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="loginIdentifier" 
+              name="identifier" 
+              class="form-input" 
+              placeholder="e.g. alex or alex@example.com" 
+              required 
+              autocomplete="username"
+              autofocus
+            >
+          </div>
+        </div>
+
+        <!-- Password Field with Toggle -->
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Password</label>
+          <div class="input-wrapper">
+            <input 
+              type="password" 
+              id="loginPassword" 
+              name="password" 
+              class="form-input" 
+              placeholder="Enter your password" 
+              required 
+              autocomplete="current-password"
+            >
+            <button 
+              type="button" 
+              class="toggle-password" 
+              data-target="loginPassword" 
+              aria-label="Toggle password visibility"
+              title="Show/Hide password"
+            >👁️</button>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="loginSubmitBtn" class="btn-primary">
+          Sign In
+        </button>
+      </form>
+
+      <!-- Navigation Footer -->
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Create an account</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

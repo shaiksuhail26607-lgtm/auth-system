@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Secure Auth System</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo">✨</div>
+        <h1 class="auth-title">Create Account</h1>
+        <p class="auth-subtitle">Get started with a free, secure account</p>
+      </div>
+
+      <!-- Feedback / Alert Container -->
+      <div id="formAlert" class="alert hidden" role="alert" aria-live="polite"></div>
+
+      <!-- Registration Form -->
+      <form id="registerForm" novalidate>
+        <!-- Username or Email Field -->
+        <div class="form-group">
+          <label for="regIdentifier" class="form-label">Username or Email</label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="regIdentifier" 
+              name="identifier" 
+              class="form-input" 
+              placeholder="Choose a username or email" 
+              required 
+              autocomplete="username"
+              autofocus
+            >
+          </div>
+        </div>
+
+        <!-- Password Field with Toggle -->
+        <div class="form-group">
+          <label for="regPassword" class="form-label">Password</label>
+          <div class="input-wrapper">
+            <input 
+              type="password" 
+              id="regPassword" 
+              name="password" 
+              class="form-input" 
+              placeholder="Create a strong password" 
+              required 
+              autocomplete="new-password"
+            >
+            <button 
+              type="button" 
+              class="toggle-password" 
+              data-target="regPassword" 
+              aria-label="Toggle password visibility"
+              title="Show/Hide password"
+            >👁️</button>
+          </div>
+
+          <!-- Real-Time Password Requirements Checklist -->
+          <div class="password-requirements" aria-live="polite">
+            <div class="req-title">Password must contain:</div>
+            <div id="req-length" class="req-item">
+              <span class="req-icon">✗</span> At least 8 characters
+            </div>
+            <div id="req-number" class="req-item">
+              <span class="req-icon">✗</span> At least 1 number
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="regSubmitBtn" class="btn-primary">
+          Register Account
+        </button>
+      </form>
+
+      <!-- Navigation Footer -->
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign in here</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

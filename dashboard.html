@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Protected Area</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Immediate Route Guard: Prevents content flash for unauthenticated users -->
+  <script type="module" src="js/guard.js"></script>
+</head>
+<body>
+  <div class="dashboard-wrapper">
+    <!-- Navigation Bar -->
+    <nav class="dashboard-nav">
+      <div class="nav-brand">
+        <span>🛡️</span>
+        <span>SecureAuth Portal</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="user-badge">
+          <span>👤</span>
+          <span id="userBadgeName">Loading...</span>
+        </div>
+        <button id="logoutBtn" class="btn-danger" title="End your current session">
+          Logout
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Dashboard Protected Content -->
+    <div class="dashboard-card">
+      <h1 class="dashboard-heading">
+        Welcome back, <span id="userGreeting" style="color: var(--primary);">User</span>!
+      </h1>
+      <p class="dashboard-desc">
+        You have successfully authenticated. This page is protected by client-side session guards. If you attempt to access this URL directly without an active session, you will be redirected to the login page immediately.
+      </p>
+
+      <!-- Active Session Information -->
+      <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.85rem; color: #1e293b;">
+        Session & Account Details
+      </h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Active Username</div>
+          <div class="info-value" id="displayUsername">—</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Associated Email</div>
+          <div class="info-value" id="displayEmail">—</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Session ID</div>
+          <div class="info-value" id="displayUserId">—</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Login Timestamp</div>
+          <div class="info-value" id="displayLoginTime">—</div>
+        </div>
+      </div>
+
+      <!-- Security Demonstration Section -->
+      <div class="security-callout" style="margin-bottom: 1.5rem;">
+        <strong>🔒 Security Guarantee: Zero Plaintext Storage</strong>
+        Your password was transformed using browser-native <strong>SHA-256 (Web Crypto API)</strong> before ever touching persistent storage. Here is the stored cryptographic digest associated with your account in <code>localStorage</code>:
+        <code class="code-badge" id="displayHash">Loading hash digest...</code>
+      </div>
+
+      <!-- Quick Actions -->
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--card-border);">
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          Total registered users in local database: <strong id="displayRegisteredCount" style="color: var(--text-main);">0</strong>
+        </div>
+        <button id="clearDbBtn" class="btn-secondary" style="font-size: 0.8rem; color: #dc2626;">
+          Reset Local Database (Demo)
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

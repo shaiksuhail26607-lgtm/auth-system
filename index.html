@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth System | Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module">
+    import { StorageService } from './js/storage.js';
+    // If active session exists, navigate directly to dashboard; otherwise login
+    if (StorageService.isLoggedIn()) {
+      window.location.replace('dashboard.html');
+    } else {
+      window.location.replace('login.html');
+    }
+  </script>
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card" style="text-align: center;">
+      <div class="auth-logo">🔐</div>
+      <h1 class="auth-title">Authentication System</h1>
+      <p class="auth-subtitle">Redirecting to application...</p>
+      <div style="margin-top: 1.5rem;">
+        <a href="login.html" class="btn-primary" style="display: block; text-decoration: none;">Continue to Login</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
